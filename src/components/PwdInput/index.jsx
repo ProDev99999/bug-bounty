@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 	root: {}
 }))
 
-function PwdInput(props) {
+function inputBase(props) {
 	const { className, placeholder, value, onChange, isValid, ...others } = props
 	const classes = useStyles(props)
 	const [showPwd, setShowPwd] = useState(false)
@@ -41,12 +41,12 @@ function PwdInput(props) {
 	)
 }
 
-PwdInput.defaultProps = {
+inputBase.defaultProps = {
 	isValid: true
 }
 
-PwdInput.propTypes = {
+inputBase.propTypes = {
 	isValid: PropTypes.bool
 }
 
-export default PwdInput
+export default inputBase

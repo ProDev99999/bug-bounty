@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => {
 	return ({
 		root: {
 		},
-		pwdInput: {
+		inputBase: {
 			'&.success': {
 				'& :first-child': {
 					borderColor: theme.palette.success.main,
@@ -94,7 +94,7 @@ function PwdValidInput(props) {
 	return (
 		<div className={clsx('w-full flex flex-col items-center justify-center', className)}>
 			<div className={clsx(
-				classes.pwdInput, validateIsEmpty(value) ? '' : ruleError ? 'error' : 'success',
+				classes.inputBase, validateIsEmpty(value) ? '' : ruleError ? 'error' : 'success',
 				'w-full flex items-center'
 			)}>
 				<InputComponent

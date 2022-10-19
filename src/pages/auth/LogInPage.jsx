@@ -12,19 +12,16 @@ import PwdInput from '@components/PwdInput'
 
 import { setInfo } from '@store/actions'
 
-const useStyles = makeStyles(theme => {
-	console.log(theme)
-	return ({
-		root: {
-		},
-		divider: {
-			fontSize: '1.25rem'
-		},
-		loginLink: {
-			color: theme.palette.warning.main
-		}
-	})
-})
+const useStyles = makeStyles(theme => ({
+	root: {
+	},
+	divider: {
+		fontSize: '1.25rem'
+	},
+	loginLink: {
+		color: theme.palette.warning.main
+	}
+}))
 
 function LogInPage(props) {
 	const dispatch = useDispatch()
@@ -42,11 +39,12 @@ function LogInPage(props) {
 	};
 	const handleLogIn = (e) => {
 		if (!validateEmail(email)) {
-			alert(`Your E-mail ${email} is not valid!`)
+			console.log(`Your E-mail ${email} is not valid!`)
 			return
 		}
 
-		alert(`${email}  and ${pwd}    valid!`)
+		console.log(`${email}  and ${pwd}    valid!`)
+		// alert(`${email}  and ${pwd}    valid!`)
 
 		dispatch(setInfo({ email_addr: email }))
 		navigate('/dashboard')

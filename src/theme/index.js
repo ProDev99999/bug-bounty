@@ -23,6 +23,13 @@ export const theme = createTheme({
         }
       }
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         '*': {

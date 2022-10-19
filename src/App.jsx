@@ -6,9 +6,11 @@ import clsx from 'clsx';
 import LogInPage from '@pages/auth/LogInPage';
 import SignUpPage from '@pages/auth/SignUpPage';
 
+import HomePage from '@pages/HomePage'
 import Dashboard from '@pages/Dashboard'
 
 import TestComponent from './test.component';
+import ContactUsPage from "@pages/ContactUsPage";
 // import { useSelector } from 'react-redux'
 
 
@@ -25,16 +27,19 @@ function App(props) {
 
   return (
     <Router>
-      <div className={clsx(classes.root, "App flex flex-col items-center justify-center")}>
+      <div className={clsx(classes.root, "App flex flex-col items-center")}>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/contact_us" element={<ContactUsPage />} />
 
 
           <Route path="/test" element={<TestComponent />} />
-          <Route path="*" element={<Navigate to={"/login"} replace />} />
+
+          <Route path="*" element={<Navigate to={"/"} replace />} />
         </Routes>
       </div>
     </Router >

@@ -1,20 +1,14 @@
-import { SET_USER_ROLE, SET_ALL_USER_INFO } from '../actions/ActionTypes';
+import {  SET_ALL_USER_INFO } from '../actions/ActionTypes';
 
 const initialState = {
+  email_addr: 'sam******@gmail.com',
   full_name: 'Sam Arafat',
-  email_addr: 'km657***3@gmail.com',
-  role: 'client',             // or 'recruiter'
-
-  company_name: 'Individual'
 };
 
 export default function user_info(state = initialState, action) {
   switch (action.type) {
-    case SET_USER_ROLE:
-      return { ...state, role: action.payload };
-
     case SET_ALL_USER_INFO:
-      console.log("sdfsadf", {
+      console.log("====: set-all-user-info :====", {
         ...state,
         ...action.payload
       })
