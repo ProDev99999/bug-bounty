@@ -9,9 +9,9 @@ import clsx from 'clsx'
 // import FacebookLogo from '@assets/imgs/social/facebook.png'
 
 import SimplePage from '@components/SimplePageWithLogo'
-import InputComponent from '@components/InputComponent'
-import PwdValidInput from '@components/PwdInput/PwdValidInput'
-import PwdConfirmInput from '@components/PwdInput/PwdConfirmInput'
+import InputComponent from '@components/Inputs/InputComponent'
+import PwdValidInput from '@components/Inputs/PwdInput/PwdValidInput'
+import PwdConfirmInput from '@components/Inputs/PwdInput/PwdConfirmInput'
 
 const useStyles = makeStyles(theme => {
 	console.log(theme)

@@ -4,16 +4,16 @@ import { InputAdornment, IconButton, Collapse, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import clsx from 'clsx'
-import { validateIsEmpty } from '../../utils'
+import { validateIsEmpty } from '@utils'
 
-import InputComponent from '@components/InputComponent'
+import InputComponent from '@components/Inputs/InputComponent'
 
 
 const useStyles = makeStyles(theme => ({
 	root: {}
 }))
 
-function inputBase(props) {
+function PwdInput(props) {
 	const { className, placeholder, value, onChange, isValid, ...others } = props
 	const classes = useStyles(props)
 	const [showPwd, setShowPwd] = useState(false)
@@ -41,12 +41,12 @@ function inputBase(props) {
 	)
 }
 
-inputBase.defaultProps = {
+PwdInput.defaultProps = {
 	isValid: true
 }
 
-inputBase.propTypes = {
+PwdInput.propTypes = {
 	isValid: PropTypes.bool
 }
 
-export default inputBase
+export default PwdInput

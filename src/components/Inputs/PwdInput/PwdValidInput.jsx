@@ -4,9 +4,9 @@ import { Typography, InputAdornment, IconButton, Collapse } from '@mui/material'
 import { Visibility, VisibilityOff, CheckCircle as CheckCircleIcon, Cancel as CancelIcon } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import clsx from 'clsx';
-import { validateIsEmpty } from '../../utils'
+import { validateIsEmpty } from '@utils'
 
-import InputComponent from '@components/InputComponent'
+import InputComponent from '@components/Inputs/InputComponent'
 
 const useStyles = makeStyles(theme => {
 	console.log(theme)

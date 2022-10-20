@@ -4,9 +4,9 @@ import { InputAdornment, IconButton, Collapse, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import clsx from 'clsx'
-import { validateIsEmpty } from '../../utils'
+import { validateIsEmpty } from '@utils'
 
-import InputComponent from '@components/InputComponent'
+import InputComponent from '@components/Inputs/InputComponent'
 
 
 const useStyles = makeStyles(theme => ({
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function PwdConfirmInput(props) {
-	const { className, placeholder, value, onChange, isValid, ...others } = props
+	const { className, placeholder, value, onChange, isValid, errorText, ...others } = props
 	const classes = useStyles(props)
 	const [showPwd, setShowPwd] = useState(false)
 
@@ -63,9 +63,9 @@ function PwdConfirmInput(props) {
 					}
 				/>
 			</div>
-			<Collapse in={!isValid} component='ul' className={clsx(classes.errorText, 'error')}>
-				{props.errorText !== '' &&
-					<div className='sm:my-4 my-2'><Typography>{props.errorText}</Typography></div>
+			<Collapse in={!validateIsEmpty(value) && !isValid} component='ul' className={clsx(classes.errorText, 'error')}>
+				{errorText !== '' &&
+					<div className='sm:my-4 my-2'><Typography>{errorText}</Typography></div>
 				}
 			</Collapse>
 		</div>

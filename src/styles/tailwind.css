@@ -587,17 +587,17 @@ video {
 #root .justify-evenly {
   justify-content: space-evenly;
 }
-#root .rounded-full {
-  border-radius: 9999px;
-}
 #root .rounded-lg {
   border-radius: 0.5rem;
 }
-#root .border {
-  border-width: 1px;
+#root .rounded-full {
+  border-radius: 9999px;
 }
 #root .border-4 {
   border-width: 4px;
+}
+#root .border {
+  border-width: 1px;
 }
 #root .border-dashed {
   border-style: dashed;
@@ -630,6 +630,10 @@ video {
 #root .p-4 {
   padding: 1rem;
 }
+#root .px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
 #root .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -637,10 +641,6 @@ video {
 #root .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-#root .px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 #root .py-2 {
   padding-top: 0.5rem;
@@ -655,14 +655,6 @@ video {
 #root .text-center {
   text-align: center;
 }
-#root .text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-#root .text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
 #root .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -674,6 +666,14 @@ video {
 #root .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+#root .text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+#root .text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 #root .text-2xl {
   font-size: 1.5rem;
@@ -798,14 +798,14 @@ code {
     padding: 4rem;
   }
 
-  #root .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
   #root .sm\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  #root .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   #root .sm\:pl-12 {
@@ -841,14 +841,14 @@ code {
     line-height: 2.25rem;
   }
 
-  #root .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
   #root .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  #root .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 

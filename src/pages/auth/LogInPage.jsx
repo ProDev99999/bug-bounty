@@ -7,10 +7,12 @@ import { makeStyles } from '@mui/styles';
 import clsx from 'clsx';
 
 import SimplePage from '@components/SimplePageWithLogo'
-import InputComponent from '@components/InputComponent'
-import PwdInput from '@components/PwdInput'
+import InputComponent from '@components/Inputs/InputComponent'
+import EmailInput from '@components/Inputs/EmailInput'
+import PwdInput from '@components/Inputs/PwdInput/PwdInput'
 
 import { setInfo } from '@store/actions'
+import { validateEmail } from '../../utils'
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -30,13 +32,6 @@ function LogInPage(props) {
 	const [email, setEmail] = useState('')
 	const [pwd, setPwd] = useState('')
 
-	const validateEmail = (email) => {
-		return String(email)
-			.toLowerCase()
-			.match(
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			);
-	};
 	const handleLogIn = (e) => {
 		if (!validateEmail(email)) {
 			console.log(`Your E-mail ${email} is not valid!`)
@@ -53,7 +48,7 @@ function LogInPage(props) {
 	return (
 		<SimplePage className={"w-2/5"}>
 			<Typography className='my-10 font-extrabold sm:text-4xl text-2xl'>Welcome</Typography>
-			<InputComponent className='mb-5' placeholder="Email"
+			<EmailInput className='mb-5' placeholder="Email"
 				value={email} onChange={e => setEmail(e.target.value)}
 			/>
 			<PwdInput className='mb-3' placeholder="Password"

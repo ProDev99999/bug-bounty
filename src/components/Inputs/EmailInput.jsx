@@ -4,9 +4,9 @@ import { InputAdornment, IconButton, Collapse, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 import clsx from 'clsx'
-import { validateIsEmpty } from '../../utils'
+import { validateIsEmpty, validateEmail } from '@utils'
 
-import InputComponent from '@components/InputComponent'
+import InputComponent from '@components/Inputs/InputComponent'
 
 
 const useStyles = makeStyles(theme => ({
@@ -37,23 +37,28 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function EmailInput(props) {
-	// const { className, placeholder, value, onChange, isValid, ...others } = props
-	// const classes = useStyles(props)
+	const { className, placeholder, value, onChange, ...others } = props
+	const classes = useStyles(props)
+	const [emailValid, setEmailValid] = useState(false)
 
-	// return (
-	// 	<div className={clsx('w-full flex flex-col items-center justify-center', className)}>
-	// 		<div className={clsx(classes.inputBase, 'w-full',
-	// 			validateIsEmpty(value) ? '' : isValid ? 'success' : 'error')
-	// 		}>
-	// 			<InputComponent placeholder={placeholder} value={value} onChange={onChange} />
-	// 		</div>
-	// 		<Collapse in={!isValid} component='ul' className={clsx(classes.errorText, 'error')}>
-	// 			{props.errorText !== '' &&
-	// 				<div className='sm:my-4 my-2'><Typography>{props.errorText}</Typography></div>
-	// 			}
-	// 		</Collapse>
-	// 	</div>
-	// )
+	const handleEmailChange = e => {
+		setEmailValid(validateEmail(e.target.value));
+
+		onChange(e);
+	}
+
+	return (
+		<div className={clsx('w-full flex flex-col items-center justify-center', className)}>
+			<div className={clsx(classes.inputBase, 'w-full',
+				validateIsEmpty(value) ? '' : emailValid ? 'success' : 'error')
+			}>
+				<InputComponent placeholder={placeholder} value={value} onChange={handleEmailChange} />
+			</div>
+			<Collapse in={!validateIsEmpty(value) && !emailValid} component='ul' className={clsx(classes.errorText, 'error')}>
+				<div className='sm:my-4 my-2'><Typography>Your input is not the email format</Typography></div>
+			</Collapse>
+		</div>
+	)
 }
 
 EmailInput.defaultProps = {
